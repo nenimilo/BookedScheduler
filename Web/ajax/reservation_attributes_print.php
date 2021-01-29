@@ -1,5 +1,6 @@
-{*
-Copyright 2013-2020 Nick Korbel
+<?php
+/**
+Copyright 2014-2019 Nick Korbel
 
 This file is part of Booked Scheduler.
 
@@ -15,19 +16,12 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with Booked Scheduler.  If not, see <http://www.gnu.org/licenses/>.
-*}
-<p>A sua reserva irá começar em breve.</p>
-<p><strong>Detalhes da reserva:</strong></p>
-<p>
-	<strong>Início:</strong> {formatdate date=$StartDate key=reservation_email}<br/>
-	<strong>Fim:</strong> {formatdate date=$EndDate key=reservation_email}<br/>
-	<strong>Recurso:</strong> {$ResourceName}<br/>
-	<strong>Título:</strong> {$Title}<br/>
-	<strong>Descrição:</strong> {$Description|nl2br}
-</p>
+*/
 
-<p>
-	<a href="{$ScriptUrl}/{$ReservationUrl}">Ver esta reserva</a> |
-	<a href="{$ScriptUrl}/{$ICalUrl}">Adicionar ao calendário</a> |
-	<a href="{$ScriptUrl}">Entrar em {$AppTitle}</a>
-</p>
+define('ROOT_DIR', '../../');
+
+require_once(ROOT_DIR . 'Pages/SecurePage.php');
+require_once(ROOT_DIR . 'Pages/Ajax/ReservationAttributesPrintPage.php');
+
+$page = new ReservationAttributesPrintPage();
+$page->PageLoad();
